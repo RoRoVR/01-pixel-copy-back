@@ -1,21 +1,26 @@
 import { Request, Response } from "express";
+import PixelArt from "../models/pixelcopy";
 
 
-export const getPixelArts = (req: Request, res: Response) => {
+export const getPixelArts = async(req: Request, res: Response) => {
+
+    const pixelart = await PixelArt.findAll();
 
     return res.status(200).json({
-        msg: 'OK'
+        msg: 'getPixelArts',
+        pixelart
     });
 }
 
-export const postPixelArt = ( req: Request, res: Response ) => {
+export const postPixelArt = async( req: Request, res: Response ) => {
 
     const { body } = req;
 
+    const newPixelArt = PixelArt.build( body );
+    await newPixelArt.save();
+
     return res.status(200).json({
         msg: 'postPixelArts',
-        body
+        newPixelArt,
     });
-
-
 }

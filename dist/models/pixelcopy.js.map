@@ -1,0 +1,1 @@
+{"version":3,"file":"pixelcopy.js","sourceRoot":"","sources":["../../models/pixelcopy.ts"],"names":[],"mappings":";;;;;AAAA,kEAAkC;AAClC,yCAAoC;AAGpC,MAAM,QAAQ,GAAG,oBAAE,CAAC,MAAM,CAAC,UAAU,EAAC;IAClC,MAAM,EAAE;QACJ,IAAI,EAAE,qBAAS,CAAC,MAAM;KACzB;IACD,KAAK,EAAE;QACH,IAAI,EAAE,qBAAS,CAAC,OAAO;KAC1B;CACJ,CAAC,CAAC;AAEH,kBAAe,QAAQ,CAAC"}
