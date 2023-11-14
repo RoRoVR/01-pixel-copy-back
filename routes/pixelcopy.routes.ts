@@ -1,12 +1,13 @@
 import { Router } from "express";
 
-import { getPixelArts, postPixelArt } from "../controllers/pixelcopy.controller";
+import { getPixelArts, getRandomPixelArts, postPixelArt } from "../controllers/pixelcopy.controller";
 
 
 const pixelCopyRoute = Router();
 
-pixelCopyRoute.get('/',     getPixelArts);
-pixelCopyRoute.post('/',    postPixelArt);
+pixelCopyRoute.get('/',         getPixelArts);
+pixelCopyRoute.get('/random',   getRandomPixelArts)
+pixelCopyRoute.post('/',        postPixelArt);
 
 
 export default pixelCopyRoute;

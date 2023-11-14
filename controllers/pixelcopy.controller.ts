@@ -12,6 +12,17 @@ export const getPixelArts = async(req: Request, res: Response) => {
     });
 }
 
+export const getRandomPixelArts = async(req: Request, res: Response) => {
+
+    const pixelart = await PixelArt.findAll();
+    const numRandom = Math.floor(Math.random() * (pixelart.length));
+
+    return res.status(200).json({
+        msg: 'getRandomPixelArts',
+        pixelart: pixelart[numRandom],
+    });
+}
+
 export const postPixelArt = async( req: Request, res: Response ) => {
 
     const { body } = req;

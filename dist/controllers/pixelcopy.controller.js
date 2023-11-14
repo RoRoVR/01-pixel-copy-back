@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.postPixelArt = exports.getPixelArts = void 0;
+exports.postPixelArt = exports.getRandomPixelArts = exports.getPixelArts = void 0;
 const pixelcopy_1 = __importDefault(require("../models/pixelcopy"));
 const getPixelArts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const pixelart = yield pixelcopy_1.default.findAll();
@@ -22,6 +22,15 @@ const getPixelArts = (req, res) => __awaiter(void 0, void 0, void 0, function* (
     });
 });
 exports.getPixelArts = getPixelArts;
+const getRandomPixelArts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const pixelart = yield pixelcopy_1.default.findAll();
+    const numRandom = Math.floor(Math.random() * (pixelart.length));
+    return res.status(200).json({
+        msg: 'getRandomPixelArts',
+        pixelart: pixelart[numRandom],
+    });
+});
+exports.getRandomPixelArts = getRandomPixelArts;
 const postPixelArt = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { body } = req;
     const newPixelArt = pixelcopy_1.default.build(body);
